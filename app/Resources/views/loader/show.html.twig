@@ -7,36 +7,36 @@
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ good.id }}</td>
+            <td>{{ loader.id }}</td>
         </tr>
         <tr>
             <th>Тип</th>
-            <td>{{ good.type }}</td>
+            <td>{{ loader.name }}</td>
         </tr>
         <tr>
             <th>Название</th>
-            <td>{{ good.name }}</td>
+            <td>{{ loader.surname }}</td>
         </tr>
         <tr>
             <th>Вес</th>
-            <td>{{ good.weight }}</td>
+            <td>{{ loader.goods }}</td>
         </tr>
         <tr>
             <th>Грузчик</th>
-            <td>{{ good.loader }}</td>
+            <td>{{ loader.foreman }}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('good_index') }}">Назад к списку</a>
+            <a href="{{ path('loader_index') }}">Назад к списку</a>
         </li>
         <li>
-            <a href="{{ path('good_edit', { 'id': good.id }) }}">Обновить</a>
+            <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
         </li>
         <li>
-            <a href="{{ path('good_delete', { 'id': good.id }) }}">Удалить</a>
+            <a href="{{ path('loader_delete', { 'id': loader.id }) }}">Удалить</a>
         </li>
     </ul>
 {% endblock %}

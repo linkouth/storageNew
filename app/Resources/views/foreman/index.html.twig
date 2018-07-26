@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Список сотрудников</h1>
+    <h1>Список прорабов</h1>
 
     <table bordercolor="blue" border="1">
         <thead align="center">
@@ -9,25 +9,31 @@
             <th>Id</th>
             <th>Имя</th>
             <th>Фамилия</th>
-            <th>Товары</th>
-            <th>Прораб</th>
+            <th>Email</th>
+            <th>Пароль</th>
+            <th>Роль</th>
+            <th>Соль</th>
+            <th>Грузчики</th>
         </tr>
         </thead>
         <tbody align="center">
-            {% for loader in loaders %}
+            {% for foreman in foremen %}
                 <tr>
-                    <td><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></td>
-                    <td>{{ loader.name }}</td>
-                    <td>{{ loader.surname }}</td>
-                    <td>{{ loader.goods }}</td>
-                    <td>{{ loader.foreman }}</td>
+                    <td><a href="{{ path('foreman_show', { 'id': foreman.id }) }}">{{ foreman.id }}</a></td>
+                    <td>{{ foreman.name }}</td>
+                    <td>{{ foreman.surname }}</td>
+                    <td>{{ foreman.email }}</td>
+                    <td>{{ foreman.password }}</td>
+                    <td>{{ foreman.role }}</td>
+                    <td>{{ foreman.salt }}</td>
+                    <td>{{ foreman.loaders }}</td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('loader_show', { 'id': loader.id }) }}">Показать</a>
+                                <a href="{{ path('foreman_show', { 'id': foreman.id }) }}">Показать</a>
                             </li>
                             <li>
-                                <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
+                                <a href="{{ path('foreman_edit', { 'id': foreman.id }) }}">Обновить</a>
                             </li>
                         </ul>
                     </td>
@@ -38,7 +44,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('loader_new') }}">Создать нового грузчика</a>
+            <a href="{{ path('foreman_new') }}">Создать нового прораба</a>
         </li>
     </ul>
 {% endblock %}

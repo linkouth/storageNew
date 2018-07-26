@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Список прорабов</h1>
+    <h1>Список администраторов</h1>
 
     <table bordercolor="blue" border="1">
         <thead align="center">
@@ -13,27 +13,25 @@
             <th>Пароль</th>
             <th>Роль</th>
             <th>Соль</th>
-            <th>Грузчики</th>
         </tr>
         </thead>
         <tbody align="center">
-            {% for foreman in foremans %}
+            {% for admin in admins %}
                 <tr>
-                    <td><a href="{{ path('foreman_show', { 'id': foreman.id }) }}">{{ foreman.id }}</a></td>
-                    <td>{{ foreman.name }}</td>
-                    <td>{{ foreman.surname }}</td>
-                    <td>{{ foreman.email }}</td>
-                    <td>{{ foreman.password }}</td>
-                    <td>{{ foreman.role }}</td>
-                    <td>{{ foreman.salt }}</td>
-                    <td>{{ foreman.loaders }}</td>
+                    <td><a href="{{ path('admin_show', { 'id': admin.id }) }}">{{ admin.id }}</a></td>
+                    <td>{{ admin.name }}</td>
+                    <td>{{ admin.surname }}</td>
+                    <td>{{ admin.email }}</td>
+                    <td>{{ admin.password }}</td>
+                    <td>{{ admin.role }}</td>
+                    <td>{{ admin.salt }}</td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('foreman_show', { 'id': foreman.id }) }}">Показать</a>
+                                <a href="{{ path('admin_show', { 'id': admin.id }) }}">Показать</a>
                             </li>
                             <li>
-                                <a href="{{ path('foreman_edit', { 'id': foreman.id }) }}">Обновить</a>
+                                <a href="{{ path('admin_edit', { 'id': admin.id }) }}">Обновить</a>
                             </li>
                         </ul>
                     </td>
@@ -44,7 +42,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('foreman_new') }}">Создать нового прораба</a>
+            <a href="{{ path('admin_new') }}">Создать нового администратора</a>
         </li>
     </ul>
 {% endblock %}

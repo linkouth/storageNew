@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список сотрудников</h1>
+
+    <table bordercolor="blue" border="1">
+        <thead align="center">
+        <tr>
+            <th>Id</th>
+            <th>Тип</th>
+            <th>Название</th>
+            <th>Вес</th>
+            <th>Грузчик</th>
+        </tr>
+        </thead>
+        <tbody align="center">
+            {% for good in goods %}
+                <tr>
+                    <td><a href="{{ path('good_show', { 'id': good.id }) }}">{{ good.id }}</a></td>
+                    <td>{{ good.type }}</td>
+                    <td>{{ good.name }}</td>
+                    <td>{{ good.weight }}</td>
+                    <td>{{ good.loader }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('good_show', { 'id': good.id }) }}">Показать</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('good_edit', { 'id': good.id }) }}">Обновить</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('good_new') }}">Создать новый товар</a>
+        </li>
+    </ul>
+{% endblock %}

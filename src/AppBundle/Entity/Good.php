@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Good
@@ -30,18 +31,25 @@ class Good
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Выберите тип товара")
      */
     protected $type;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Введите название")
      */
     protected $name;
 
     /**
      * @var integer|null
      * @ORM\Column(type="integer")
+     *
+     * @Assert\NotBlank(message="Добавьте вес товара")
+     * @Assert\GreaterThan(0, message="Вес должен быть положительным")
      */
     protected $weight;
 

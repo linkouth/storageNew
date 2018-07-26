@@ -7,44 +7,40 @@
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ foreman.id }}</td>
+            <td>{{ admin.id }}</td>
         </tr>
         <tr>
             <th>Имя</th>
-            <td>{{ foreman.name }}</td>
+            <td>{{ admin.name }}</td>
         </tr>
         <tr>
             <th>Фамилия</th>
-            <td>{{ foreman.surname }}</td>
+            <td>{{ admin.surname }}</td>
         </tr>
         <tr>
             <th>Email</th>
-            <td>{{ foreman.email }}</td>
+            <td>{{ admin.email }}</td>
         </tr>
         <tr>
             <th>Пароль</th>
-            <td>{{ foreman.password }}</td>
+            <td>{{ admin.password }}</td>
         </tr>
         <tr>
             <th>Соль</th>
-            <td>{{ foreman.salt }}</td>
-        </tr>
-        <tr>
-            <th>Грузчики</th>
-            <td>{{ foreman.loaders }}</td>
+            <td>{{ admin.salt }}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('foreman_index') }}">Назад к списку</a>
+            <a href="{{ path('admin_index') }}">Назад к списку</a>
         </li>
         <li>
-            <a href="{{ path('foreman_edit', { 'id': foreman.id }) }}">Обновить</a>
+            <a href="{{ path('admin_edit', { 'id': admin.id }) }}">Обновить</a>
         </li>
         <li>
-            <a href="{{ path('foreman_delete', { 'id': foreman.id }) }}">Удалить</a>
+            <a href="{{ path('admin_delete', { 'id': admin.id }) }}">Удалить</a>
         </li>
     </ul>
 {% endblock %}

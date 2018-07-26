@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Редактор сотрудников</h1>
+    <h1>Редактор грузчиков</h1>
 
     {{ form_start(edit_form) }}
     {{ form_widget(edit_form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('good_index') }}">Назад к списку</a>
+            <a href="{{ path('loader_index') }}">Назад к списку</a>
         </li>
     </ul>
 {% endblock %}

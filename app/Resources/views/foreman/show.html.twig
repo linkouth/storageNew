@@ -7,36 +7,44 @@
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ loader.id }}</td>
+            <td>{{ foreman.id }}</td>
         </tr>
         <tr>
-            <th>Тип</th>
-            <td>{{ loader.name }}</td>
+            <th>Имя</th>
+            <td>{{ foreman.name }}</td>
         </tr>
         <tr>
-            <th>Название</th>
-            <td>{{ loader.surname }}</td>
+            <th>Фамилия</th>
+            <td>{{ foreman.surname }}</td>
         </tr>
         <tr>
-            <th>Вес</th>
-            <td>{{ loader.goods }}</td>
+            <th>Email</th>
+            <td>{{ foreman.email }}</td>
         </tr>
         <tr>
-            <th>Грузчик</th>
-            <td>{{ loader.foreman }}</td>
+            <th>Пароль</th>
+            <td>{{ foreman.password }}</td>
+        </tr>
+        <tr>
+            <th>Соль</th>
+            <td>{{ foreman.salt }}</td>
+        </tr>
+        <tr>
+            <th>Грузчики</th>
+            <td>{{ foreman.loaders }}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('loader_index') }}">Назад к списку</a>
+            <a href="{{ path('foreman_index') }}">Назад к списку</a>
         </li>
         <li>
-            <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
+            <a href="{{ path('foreman_edit', { 'id': foreman.id }) }}">Обновить</a>
         </li>
         <li>
-            <a href="{{ path('loader_delete', { 'id': loader.id }) }}">Удалить</a>
+            <a href="{{ path('foreman_delete', { 'id': foreman.id }) }}">Удалить</a>
         </li>
     </ul>
 {% endblock %}

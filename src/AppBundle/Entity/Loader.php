@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Loader
@@ -32,18 +33,21 @@ class Loader
     /**
      * @var string
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Введите имя")
      */
     protected $name;
 
     /**
      * @var string
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Введите фамилию")
      */
     protected $surname;
 
     /**
      * @var ArrayCollection|Good[]
-     * @ORM\Column(type="Good")
      */
     protected $goods;
 

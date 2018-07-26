@@ -7,9 +7,19 @@
  */
 
 namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-
-class Admin
+/**
+ * Class Admin
+ * @package AppBundle\Entity
+ *
+ * @ORM\Entity()
+ */
+class Admin extends User
 {
-
+    public function getRole()
+    {
+        return 'ROLE_ADMIN';
+    }
 }

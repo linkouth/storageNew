@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+{% block header %}
+    <div id="wrapper">
+        {% if is_granted('ROLE_USER') %}
+            <a>Здравствуй {{ app.user.name }} {{ app.user.surname }}</a>
+        {% endif %}
+        <h1>МЕНЮ</h1>
+        <a href="{{ path('good_index') }}">Товары</a><br>
+        <a href="{{ path('loader_index') }}">Грузчики</a><br>
+        <a href="{{ path('foreman_index') }}">Прорабы</a><br>
+        <a href="{{ path('admin_index') }}">Администраторы</a><br>
+        {% if not is_granted('ROLE_USER') %}
+            <a href="{{ path('login') }}">Личный кабинет</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block stylesheet %}
+    <style>
+        #wrapper {
+            border: 3px solid #022866;
+            border-radius: 0px 0px 0px 0px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+{% endblock %}
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>
