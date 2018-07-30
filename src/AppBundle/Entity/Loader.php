@@ -144,4 +144,10 @@ class Loader
     {
         $this->foreman = $foreman;
     }
+
+    public function __toString()
+    {
+        return $this->getId().' '.$this->getName().' '.$this->getSurname();
+    }
+
 }

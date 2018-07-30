@@ -36,4 +36,26 @@ class Foreman extends User
     {
         return 'ROLE_USER';
     }
+
+    /**
+     * @return Loader[]|ArrayCollection
+     */
+    public function getLoaders()
+    {
+        return $this->loaders;
+    }
+
+    /**
+     * @param Loader[]|ArrayCollection $loaders
+     */
+    public function setLoaders($loaders)
+    {
+        $this->loaders = $loaders;
+    }
+
+    public function __toString()
+    {
+        return $this->getId().' '.$this->getName().' '.$this->getSurname();
+    }
+
 }

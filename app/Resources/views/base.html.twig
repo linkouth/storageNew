@@ -13,6 +13,9 @@
         {% if not is_granted('ROLE_USER') %}
             <a href="{{ path('login') }}">Личный кабинет</a>
         {% endif %}
+        {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('logout') }}">Выйти</a>
+        {% endif %}
     </div>
 {% endblock %}
 

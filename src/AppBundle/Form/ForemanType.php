@@ -9,7 +9,10 @@
 namespace AppBundle\Form;
 
 
+use AppBundle\Entity\Loader;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,9 +27,11 @@ class ForemanType extends AbstractType
             ->add('name', null, ['label' => 'Имя: '])
             ->add('surname', null, ['label' => 'Фамилия: '])
             ->add('email', null, ['label' => 'Email: '])
-            ->add('password', null, ['label' => 'Пароль: '])
+            ->add('password', PasswordType::class, ['label' => 'Пароль: '])
             ->add('salt', null, ['label' => 'Соль: '])
-            ->add('loaders', null, ['label' => 'Грузчики: ']);
+            ->add('loaders', CollectionType::class, array(
+                'entry_type' => Loader::class,
+            ));
     }
 
     /**

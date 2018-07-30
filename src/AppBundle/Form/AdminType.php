@@ -10,6 +10,7 @@ namespace AppBundle\Form;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,7 +25,7 @@ class AdminType extends AbstractType
             ->add('name', null, ['label' => 'Имя: '])
             ->add('surname', null, ['label' => 'Фамилия: '])
             ->add('email', null, ['label' => 'Email: '])
-            ->add('password', null, ['label' => 'Пароль: '])
+            ->add('password', PasswordType::class, ['label' => 'Пароль: '])
             ->add('salt', null, ['label' => 'Соль: ']);
     }
 
