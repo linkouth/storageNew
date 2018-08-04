@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html>
-{% block header %}
-    <div id="wrapper">
-        {% if is_granted('ROLE_USER') %}
-            <a>Здравствуй {{ app.user.name }} {{ app.user.surname }}</a>
-        {% endif %}
-        <h1>МЕНЮ</h1>
-        <a href="{{ path('good_index') }}">Товары</a><br>
-        <a href="{{ path('loader_index') }}">Грузчики</a><br>
-        <a href="{{ path('foreman_index') }}">Прорабы</a><br>
-        <a href="{{ path('admin_index') }}">Администраторы</a><br>
-        {% if not is_granted('ROLE_USER') %}
-            <a href="{{ path('login') }}">Личный кабинет</a>
-        {% endif %}
-        {% if is_granted('ROLE_USER') %}
-        <a href="{{ path('logout') }}">Выйти</a>
-        {% endif %}
-    </div>
-{% endblock %}
 
 {% block stylesheet %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         #wrapper {
             border: 3px solid #022866;
@@ -27,7 +10,37 @@
             text-align: center;
             line-height: 1.5;
         }
+
+        a.navbar-brand {
+            margin-right: 70px;
+        }
     </style>
+{% endblock %}
+
+{% block navigation %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{{ path('homepage') }}">Склад</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"></button>
+        <div class="navbar-collapse collapse" id="navbarCollapse" style>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('good_index') }}">Товары</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('loader_index') }}">Грузчики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('foreman_index') }}">Прорабы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_index') }}">Администратор</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('login') }}">Личный кабинет</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% endblock %}
 
 <head>

@@ -3,20 +3,22 @@
 {% block body %}
     <h1>Список сотрудников</h1>
 
-    <table bordercolor="blue" border="1">
-        <thead align="center">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
         <tr>
-            <th>Id</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Товары</th>
-            <th>Прораб</th>
+            <th scope="col">Id</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Товары</th>
+            <th scope="col">Прораб</th>
+            <th scope="col"></th>
         </tr>
         </thead>
-        <tbody align="center">
+
+        <tbody>
             {% for loader in loaders %}
                 <tr>
-                    <td><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></td>
+                    <th scope="row"><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></th>
                     <td>{{ loader.name }}</td>
                     <td>{{ loader.surname }}</td>
                     <td>{{ loader.goods }}</td>
@@ -36,9 +38,8 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('loader_new') }}">Создать нового грузчика</a>
-        </li>
-    </ul>
+
+
+    <a href="{{ path('loader_new') }}" style="margin-left: 10px;">Создать нового грузчика</a>
+
 {% endblock %}
