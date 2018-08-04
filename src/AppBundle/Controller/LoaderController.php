@@ -40,6 +40,40 @@ class LoaderController extends Controller
     }
 
     /**
+     * Lists all loaders entities.
+     *
+     * @Route("/print", name="loader_print")
+     * @Method("GET")
+     */
+    public function printAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $loaders = $em->getRepository(Loader::class)->findAll();
+
+        $pdf = $this
+            ->get("white_october.tcpdf")
+            ->create('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $format = '210x297';
+        $filename = "Бейджи участников ".$format;
+        $pdf->AddPage('L', explode('x', $format));
+        $pdf->SetFont('dejavusans', '', 14, '', true);
+        $html = $this->renderView('loader/list.html.twig', array(
+            'loaders' => $loaders,
+        ));
+        $pdf->writeHTMLCell(
+            $w = 0, $h = 0,
+            $x = '', $y = '',
+            $html, $border = 0,
+            $ln = 1, $fill = 0,
+            $reseth = true, $align = '',
+            $autopadding = true
+        );
+
+        return $pdf->Output($filename . '.pdf', 'I');
+    }
+
+    /**
      * Creates a new loader entity
      *
      * @Route("/new", name="loader_new")

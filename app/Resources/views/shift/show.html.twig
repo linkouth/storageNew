@@ -1,42 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Сотрудник</h1>
+    <h1>Смена</h1>
 
     <table bordercolor="blue" border="1">
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ loader.id }}</td>
+            <td>{{ shift.id }}</td>
         </tr>
         <tr>
-            <th>Тип</th>
-            <td>{{ loader.name }}</td>
+            <th>Дата</th>
+            <td>{{ shift.date }}</td>
         </tr>
         <tr>
-            <th>Название</th>
-            <td>{{ loader.surname }}</td>
+            <th>Прораб</th>
+            <td>{{ shift.foreman }}</td>
         </tr>
         <tr>
-            <th>Вес</th>
-            <td>{{ loader.goods }}</td>
-        </tr>
-        <tr>
-            <th>Грузчик</th>
-            <td>{{ loader.foreman }}</td>
+            <th>Грузчики</th>
+            <td>{{ shift.loaders }}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('loader_index') }}">Назад к списку</a>
+            <a href="{{ path('shift_index') }}">Назад к списку</a>
         </li>
         <li>
-            <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
+            <a href="{{ path('shift_edit', { 'id': shift.id }) }}">Обновить</a>
         </li>
         <li>
-            <a href="{{ path('loader_delete', { 'id': loader.id }) }}">Удалить</a>
+            <a href="{{ path('shift_delete', { 'id': shift.id }) }}">Удалить</a>
         </li>
     </ul>
 {% endblock %}

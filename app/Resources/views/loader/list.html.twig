@@ -1,0 +1,22 @@
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Прораб</th>
+        <th>Товары</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for loader in loaders %}
+        <tr>
+            <td><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></td>
+            <td>{{ loader.name }}</td>
+            <td>{{ loader.surname }}</td>
+            <td>{{ loader.foreman }}</td>
+            <td>{{ loader.goods }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

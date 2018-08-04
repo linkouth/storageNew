@@ -1,35 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Список сотрудников</h1>
+    <h1>Список смен</h1>
 
     <table class="table table-bordered">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Товары</th>
+            <th scope="col">Дата</th>
             <th scope="col">Прораб</th>
+            <th scope="col">Грузчики</th>
             <th scope="col"></th>
         </tr>
         </thead>
 
         <tbody>
-            {% for loader in loaders %}
+            {% for shift in shifts %}
                 <tr>
-                    <th scope="row"><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></th>
-                    <td>{{ loader.name }}</td>
-                    <td>{{ loader.surname }}</td>
-                    <td>{{ loader.goods }}</td>
-                    <td>{{ loader.foreman }}</td>
+                    <th scope="row"><a href="{{ path('shift_show', { 'id': shift.id }) }}">{{ shift.id }}</a></th>
+                    <td>{{ shift.date }}</td>
+                    <td>{{ shift.foreman }}</td>
+                    <td>{{ shift.loaders }}</td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('loader_show', { 'id': loader.id }) }}">Показать</a>
+                                <a href="{{ path('shift_show', { 'id': shift.id }) }}">Показать</a>
                             </li>
                             <li>
-                                <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
+                                <a href="{{ path('shift_edit', { 'id': shift.id }) }}">Обновить</a>
                             </li>
                         </ul>
                     </td>
@@ -40,7 +38,7 @@
 
 
 
-    <a href="{{ path('loader_new') }}" style="margin-left: 10px;">Создать нового грузчика</a>
-    <a href="{{ path('loader_print') }}" style="margin-left: 20px;">Печать</a>
+    <a href="{{ path('shift_new') }}" style="margin-left: 10px;">Создать новую смену</a>
+    <a href="{{ path('shift_print') }}" style="margin-left: 20px;">Печать</a>
 
 {% endblock %}
