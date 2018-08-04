@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список сотрудников</h1>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Товары</th>
+            <th scope="col">Прораб</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+            {% for loader in loaders %}
+                <tr>
+                    <th scope="row"><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></th>
+                    <td>{{ loader.name }}</td>
+                    <td>{{ loader.surname }}</td>
+                    <td>{{ loader.goods }}</td>
+                    <td>{{ loader.foreman }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('loader_show', { 'id': loader.id }) }}">Показать</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('loader_edit', { 'id': loader.id }) }}">Обновить</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <a href="{{ path('loader_new') }}" style="margin-left: 10px;">Создать нового грузчика</a>
+    <a href="{{ path('loader_print') }}" style="margin-left: 20px;">Печать</a>
+
+{% endblock %}

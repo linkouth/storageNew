@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Создать грузчика</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input class="btn btn-primary" type="submit" value="Создать" style="margin-left: 15px; margin-bottom: 50px" />
+    {{ form_end(form) }}
+
+    <a href="{{ path('loader_index') }}" style="margin-left: 15px">Назад к списку</a>
+
+{% endblock %}
