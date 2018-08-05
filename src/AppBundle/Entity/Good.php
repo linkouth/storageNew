@@ -145,4 +145,11 @@ class Good
     {
         $this->loader = $loader;
     }
+
+    public function __toString()
+    {
+        return $this->getType().' '.$this->getName();
+    }
+
+
 }
