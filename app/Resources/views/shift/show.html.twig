@@ -19,7 +19,11 @@
         </tr>
         <tr>
             <th>Грузчики</th>
-            <td>{{ shift.loaders }}</td>
+            <td>
+                {% for l in shift.loaders %}
+                    {{ l }}<br />
+                {% endfor %}
+            </td>
         </tr>
         </tbody>
     </table>

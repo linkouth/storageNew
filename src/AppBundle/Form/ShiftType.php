@@ -9,10 +9,9 @@
 namespace AppBundle\Form;
 
 
-use AppBundle\Entity\Foreman;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,12 +23,21 @@ class ShiftType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class, ['label' => 'Дата: '])
-            ->add('foreman', CollectionType::class, array(
-                'entry_type' => Foreman::class,
+            ->add('date', DateTimeType::class, array(
+                'label' => 'Дата: ',
+                //'input' => "2011-06-05 01:01:00",
+            ))
+            ->add('foreman', EntityType::class, array(
+                'class' => 'AppBundle\Entity\Foreman',
+                'choice_label' => 'surname',
                 'label' => 'Прораб: ',
             ))
-            ->add('loaders', null, ['label' => 'Грузчики: ']);
+            ->add('loaders', EntityType::class, array(
+                'class' => 'AppBundle\Entity\Loader',
+                'choice_label' => 'id',
+                'label' => 'Грузчики: ',
+                'multiple' => true,
+            ));
     }
 
     /**

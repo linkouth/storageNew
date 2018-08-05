@@ -82,11 +82,14 @@ class Shift
     }
 
     /**
-     * @return \DateTime
+     * @return string|null
      */
     public function getDate()
     {
-        return $this->date;
+        if (is_null($this->date)) {
+            return new \DateTime('2000-01-01');
+        }
+        return $this->date->format('Y-m-d');
     }
 
     /**

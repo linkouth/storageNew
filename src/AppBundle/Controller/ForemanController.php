@@ -13,6 +13,7 @@ use AppBundle\Entity\Foreman;
 use AppBundle\Form\ForemanType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -76,6 +77,8 @@ class ForemanController extends Controller
      *
      * @Route("/{id}", name="foreman_show")
      * @Method("GET")
+     *
+     *
      */
     public function showAction(Foreman $foreman)
     {
@@ -89,6 +92,8 @@ class ForemanController extends Controller
      *
      * @Route("/{id}/edit", name="foreman_edit")
      * @Method({"GET", "POST"})
+     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function editAction(Request $request, Foreman $foreman)
     {
@@ -112,6 +117,8 @@ class ForemanController extends Controller
      *
      * @Route("/{id}/delete", name="foreman_delete")
      * @Method("GET")
+     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function deleteAction(Request $request, Foreman $foreman)
     {

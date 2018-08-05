@@ -9,7 +9,7 @@
 namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Foreman
@@ -21,6 +21,8 @@ class Foreman extends User
 {
     /**
      * @var ArrayCollection|Loader[]
+     *
+     * @Assert\NotBlank(message="Выберите грузчиков смены")
      */
     protected $loaders;
 

@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Редактор сотрудников</h1>
+    <h1>Редактор товаров</h1>
 
     {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
+    {{ form_row(edit_form.type) }}
+    {{ form_row(edit_form.name) }}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ form_row(edit_form.weight) }}
+    {% endif %}
+
+    {{ form_row(edit_form.loader) }}
     <input type="submit" value="Обновить" />
     {{ form_end(edit_form) }}
 

@@ -20,7 +20,11 @@
                     <th scope="row"><a href="{{ path('shift_show', { 'id': shift.id }) }}">{{ shift.id }}</a></th>
                     <td>{{ shift.date }}</td>
                     <td>{{ shift.foreman }}</td>
-                    <td>{{ shift.loaders }}</td>
+                    <td>
+                        {% for l in shift.loaders %}
+                            {{ l }}<br />
+                        {% endfor %}
+                    </td>
                     <td>
                         <ul>
                             <li>

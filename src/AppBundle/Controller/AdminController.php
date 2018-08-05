@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Class AdminController
@@ -76,6 +77,8 @@ class AdminController extends Controller
      *
      * @Route("/{id}", name="admin_show")
      * @Method("GET")
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function showAction(Admin $admin)
     {
@@ -89,6 +92,8 @@ class AdminController extends Controller
      *
      * @Route("/{id}/edit", name="admin_edit")
      * @Method({"GET", "POST"})
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Admin $admin)
     {
@@ -112,6 +117,8 @@ class AdminController extends Controller
      *
      * @Route("/{id}/delete", name="admin_delete")
      * @Method("GET")
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function deleteAction(Request $request, Admin $admin)
     {
