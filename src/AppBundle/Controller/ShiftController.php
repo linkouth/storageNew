@@ -60,7 +60,7 @@ class ShiftController extends Controller
         $pdf->AddPage('L', explode('x', $format));
         $pdf->SetFont('dejavusans', '', 14, '', true);
         $html = $this->renderView('shift/list.html.twig', array(
-            'shift' => $shifts,
+            'shifts' => $shifts,
         ));
         $pdf->writeHTMLCell(
             $w = 0, $h = 0,
