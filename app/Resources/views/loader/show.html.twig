@@ -19,7 +19,11 @@
         </tr>
         <tr>
             <th>Вес</th>
-            <td>{{ loader.goods }}</td>
+            <td>
+                {% for g in loader.goods %}
+                    {{ g }}
+                {% endfor %}
+            </td>
         </tr>
         <tr>
             <th>Грузчик</th>

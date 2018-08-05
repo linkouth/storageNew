@@ -48,6 +48,7 @@ class Loader
 
     /**
      * @var ArrayCollection|Good[]
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Good", mappedBy="loader")
      */
     protected $goods;
 

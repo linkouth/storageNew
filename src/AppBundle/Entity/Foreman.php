@@ -21,6 +21,7 @@ class Foreman extends User
 {
     /**
      * @var ArrayCollection|Loader[]
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Loader", mappedBy="foreman")
      *
      * @Assert\NotBlank(message="Выберите грузчиков смены")
      */

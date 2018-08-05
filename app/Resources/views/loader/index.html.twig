@@ -21,7 +21,11 @@
                     <th scope="row"><a href="{{ path('loader_show', { 'id': loader.id }) }}">{{ loader.id }}</a></th>
                     <td>{{ loader.name }}</td>
                     <td>{{ loader.surname }}</td>
-                    <td>{{ loader.goods }}</td>
+                    <td>
+                        {% for g in loader.goods %}
+                            {{ g }}
+                        {% endfor %}
+                    </td>
                     <td>{{ loader.foreman }}</td>
                     <td>
                         <ul>

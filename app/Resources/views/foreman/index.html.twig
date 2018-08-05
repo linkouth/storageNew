@@ -26,7 +26,11 @@
                     <td>{{ foreman.password }}</td>
                     <td>{{ foreman.role }}</td>
                     <td>{{ foreman.salt }}</td>
-                    <td>{{ foreman.loaders }}</td>
+                    <td>
+                        {% for l in foreman.loaders %}
+                            {{ l }}
+                        {% endfor %}
+                    </td>
                     <td>
                         <ul>
                             <li>

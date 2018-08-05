@@ -15,7 +15,11 @@
             <td>{{ loader.name }}</td>
             <td>{{ loader.surname }}</td>
             <td>{{ loader.foreman }}</td>
-            <td>{{ loader.goods }}</td>
+            <td>
+                {% for g in loader.goods %}
+                    {{ g }}
+                {% endfor %}
+            </td>
         </tr>
     {% endfor %}
     </tbody>
